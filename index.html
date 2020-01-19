@@ -1,0 +1,67 @@
+<html>
+  <head>
+  <title>Teste</title>
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script>
+    $( document ).ready(function() {
+	   var numeroLinhas   = 10;
+	   var numeroColunas  = 7;	   
+	   var letrasAlfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','X','Z'];	   
+	   var html = "<table id='tbl' class='table table-striped'>";
+	   var numeroLinha = 1;	   
+	   var nomeColuna = "";	   
+	   //vai criar as colunas
+	   
+	   html = html + "<thead class='thead-dark'>" ;
+	   html = html + "<tr>";	   
+	   for (z = 0; z < numeroColunas; z++)
+	   {
+	      nomeColuna = letrasAlfabeto[z];
+		  html = html + "<th>" +nomeColuna+ "</th>"; 	
+	   }
+       html = html + "</tr>";	   
+	   
+       html = html + "</thead>";	   
+       html = html + "<tbody>";	   	   
+	   
+	   
+       nomeColuna = "";	   	   
+	   for (x=0; x < numeroLinhas; x++)
+	   {	   	  	  
+	      html = html + "<tr >"; 				 	 
+	      for (i=0; i < numeroColunas; i++)
+	      {
+		    nomeColuna =  letrasAlfabeto[i] + numeroLinha;
+	        html = html + "<td id='" + nomeColuna + "'>-</td>";
+	      }
+          html = html + "</tr> ";				   	   	 
+		  numeroLinha = numeroLinha + 1;	
+       }
+       html = html + "</tbody>";	   	    	   
+	   html = html + "</table>";	   	   
+	  
+
+	   $("#conteudoDiv").append(html);
+	   
+	   
+	   $("#A1").text("ALTEREI DINAMICO");
+       $("#E5").text("ALTEREI DINAMICO");	   
+	   
+
+        console.log( "document loaded" );
+    });
+ 
+    $( window ).on( "load", function() {
+        console.log( "window loaded" );
+    });
+    </script>  
+  </head>
+  <body>
+
+    <div id="conteudoDiv">
+	
+	</div>
+  </body>
+</html>
